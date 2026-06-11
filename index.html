@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevX Services — Premium Digital Solutions at Budget Prices</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1115;
+    --ink2:#171a21;
+    --paper:#FCFAF6;
+    --indigo:#5B7FFF;
+    --amber:#FFB648;
+    --mint:#7CE0C6;
+    --slate:#9AA3B2;
+    --line:rgba(255,255,255,0.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+  .display{font-family:'Space Grotesk',sans-serif;}
+
+  a{color:inherit;}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(15,17,21,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;max-width:1120px;margin:0 auto;
+  }
+  .logo{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;font-size:20px;letter-spacing:-0.02em;
+    display:flex;align-items:center;gap:8px;
+  }
+  .logo .x{color:var(--indigo);}
+  .navlinks{display:flex;gap:32px;font-size:14px;font-weight:500;}
+  .navlinks a{text-decoration:none;color:var(--slate);transition:color .2s;}
+  .navlinks a:hover{color:var(--paper);}
+  .navlinks{display:none;}
+  @media(min-width:760px){.navlinks{display:flex;}}
+  .cta-small{
+    background:var(--indigo);color:var(--ink);
+    padding:10px 20px;border-radius:8px;font-weight:600;font-size:14px;
+    text-decoration:none;white-space:nowrap;
+  }
+
+  /* HERO */
+  .hero{
+    padding:64px 0 0;
+    position:relative;overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1fr;gap:40px;align-items:center;
+    padding-bottom:56px;
+  }
+  @media(min-width:860px){
+    .hero-grid{grid-template-columns:1.1fr 0.9fr;gap:56px;}
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;color:var(--amber);
+    letter-spacing:0.08em;text-transform:uppercase;
+    margin-bottom:18px;display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{
+    content:"";display:inline-block;width:8px;height:8px;
+    background:var(--amber);border-radius:50%;
+    box-shadow:0 0 0 4px rgba(255,182,72,0.15);
+  }
+  h1{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:clamp(2.4rem,6vw,4.2rem);
+    line-height:1.04;
+    letter-spacing:-0.03em;
+    margin-bottom:22px;
+  }
+  h1 .accent{color:var(--indigo);}
+  .hero p.lead{
+    font-size:17px;color:var(--slate);max-width:480px;margin-bottom:32px;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--paper);color:var(--ink);
+    padding:14px 28px;border-radius:10px;
+    font-weight:600;font-size:15px;text-decoration:none;
+    transition:transform .15s ease, box-shadow .15s ease;
+    display:inline-block;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(252,250,246,0.15);}
+  .btn-ghost{
+    border:1px solid var(--line);color:var(--paper);
+    padding:14px 28px;border-radius:10px;font-weight:600;font-size:15px;
+    text-decoration:none;display:inline-block;transition:border-color .15s;
+  }
+  .btn-ghost:hover{border-color:var(--indigo);}
+
+  /* PHOTO CARD */
+  .founder-card{
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:var(--ink2);
+    aspect-ratio:4/5;
+    max-width:380px;
+    margin:0 auto;
+    box-shadow:0 24px 60px rgba(0,0,0,0.45);
+  }
+  .founder-card img{
+    width:100%;height:100%;object-fit:cover;display:block;
+  }
+  .founder-tag{
+    position:absolute;left:16px;right:16px;bottom:16px;
+    background:rgba(15,17,21,0.7);
+    backdrop-filter:blur(8px);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:14px 16px;
+  }
+  .founder-tag .name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;}
+  .founder-tag .role{font-size:12px;color:var(--slate);margin-top:2px;}
+
+  /* TICKER LEDGER */
+  .ledger{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:var(--ink2);
+    overflow:hidden;
+    padding:14px 0;
+  }
+  .ledger-track{
+    display:flex;width:max-content;
+    animation:scroll-left 32s linear infinite;
+    gap:48px;
+  }
+  @keyframes scroll-left{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  .ledger-item{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;color:var(--slate);
+    display:flex;align-items:center;gap:10px;white-space:nowrap;
+  }
+  .ledger-item .price{color:var(--mint);font-weight:600;}
+  .ledger-item .dots{color:rgba(255,255,255,0.15);}
+
+  @media(prefers-reduced-motion:reduce){
+    .ledger-track{animation:none;}
+  }
+
+  /* SECTIONS */
+  section{padding:88px 0;}
+  .section-head{margin-bottom:48px;max-width:600px;}
+  .section-eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:13px;
+    color:var(--indigo);letter-spacing:0.08em;text-transform:uppercase;
+    margin-bottom:12px;
+  }
+  h2{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-0.02em;
+    margin-bottom:14px;
+  }
+  .section-head p{color:var(--slate);font-size:16px;}
+
+  /* SERVICE GRID */
+  .grid{
+    display:grid;grid-template-columns:1fr;gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:14px;overflow:hidden;
+  }
+  @media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:960px){.grid{grid-template-columns:repeat(3,1fr);}}
+  .card{
+    background:var(--ink2);
+    padding:28px 24px;
+  }
+  .card h3{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:18px;margin-bottom:14px;display:flex;align-items:center;gap:10px;
+  }
+  .card-icon{
+    width:32px;height:32px;border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:16px;flex-shrink:0;
+  }
+  .icon-design{background:rgba(91,127,255,0.15);}
+  .icon-shop{background:rgba(255,182,72,0.15);}
+  .icon-social{background:rgba(124,224,198,0.15);}
+  .icon-premium{background:rgba(255,255,255,0.08);}
+
+  .price-list{list-style:none;}
+  .price-list li{
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-size:14px;color:var(--slate);
+    padding:7px 0;
+    border-bottom:1px dashed rgba(255,255,255,0.06);
+  }
+  .price-list li:last-child{border-bottom:none;}
+  .price-list .name{color:var(--paper);}
+  .price-list .amount{
+    font-family:'JetBrains Mono',monospace;font-weight:500;
+    color:var(--mint);white-space:nowrap;padding-left:12px;
+  }
+
+  /* WHY / FEATURES STRIP */
+  .why-grid{
+    display:grid;grid-template-columns:1fr;gap:24px;
+  }
+  @media(min-width:760px){.why-grid{grid-template-columns:repeat(4,1fr);}}
+  .why-item{padding:22px 0;border-top:1px solid var(--line);}
+  @media(min-width:760px){.why-item{border-top:none;border-left:1px solid var(--line);padding:0 24px;}}
+  .why-item:first-child{border-left:none;padding-left:0;}
+  .why-num{
+    font-family:'JetBrains Mono',monospace;color:var(--indigo);
+    font-size:13px;margin-bottom:10px;
+  }
+  .why-item h4{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;margin-bottom:6px;}
+  .why-item p{font-size:14px;color:var(--slate);}
+
+  /* WALLET STRIP */
+  .wallet{
+    background:var(--ink2);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:40px;
+    display:grid;grid-template-columns:1fr;gap:32px;
+  }
+  @media(min-width:760px){.wallet{grid-template-columns:1.2fr 1fr;padding:48px;}}
+  .wallet h2{margin-bottom:14px;}
+  .wallet p{color:var(--slate);margin-bottom:24px;font-size:15px;}
+  .wallet-stats{
+    display:flex;flex-direction:column;gap:0;
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  }
+  .wallet-stat{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:16px 20px;border-bottom:1px solid var(--line);
+    font-size:14px;
+  }
+  .wallet-stat:last-child{border-bottom:none;}
+  .wallet-stat .label{color:var(--slate);}
+  .wallet-stat .val{
+    font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--amber);
+  }
+
+  /* PORTFOLIO */
+  .portfolio-grid{
+    display:grid;grid-template-columns:1fr;gap:20px;
+  }
+  @media(min-width:640px){.portfolio-grid{grid-template-columns:repeat(2,1fr);}}
+  .portfolio-item{
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    background:var(--ink2);
+  }
+  .portfolio-item img{
+    width:100%;display:block;
+  }
+  .portfolio-item figcaption{
+    padding:14px 18px;font-family:'Space Grotesk',sans-serif;
+    font-weight:600;font-size:14px;color:var(--paper);
+    border-top:1px solid var(--line);
+  }
+
+  /* OFFERS */
+  .offers{
+    display:grid;grid-template-columns:1fr;gap:16px;
+  }
+  @media(min-width:640px){.offers{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:960px){.offers{grid-template-columns:repeat(5,1fr);}}
+  .offer{
+    border:1px solid var(--line);border-radius:14px;
+    padding:24px 20px;background:linear-gradient(160deg, rgba(91,127,255,0.06), transparent 60%);
+    display:flex;flex-direction:column;justify-content:space-between;min-height:150px;
+  }
+  .offer .name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;margin-bottom:14px;}
+  .offer .price{font-family:'JetBrains Mono',monospace;color:var(--mint);font-size:24px;font-weight:600;}
+
+  /* CONTACT / FOOTER */
+  footer{border-top:1px solid var(--line);padding:64px 0 40px;}
+  .footer-grid{
+    display:grid;grid-template-columns:1fr;gap:40px;margin-bottom:48px;
+  }
+  @media(min-width:760px){.footer-grid{grid-template-columns:1.4fr 1fr 1fr;}}
+  .foot-brand .logo{margin-bottom:14px;}
+  .foot-brand p{color:var(--slate);font-size:14px;max-width:340px;}
+  .foot-col h5{
+    font-family:'JetBrains Mono',monospace;font-size:12px;
+    color:var(--slate);text-transform:uppercase;letter-spacing:0.08em;
+    margin-bottom:16px;
+  }
+  .foot-col a, .foot-col p{
+    display:block;font-size:14px;color:var(--paper);
+    text-decoration:none;margin-bottom:10px;
+  }
+  .foot-col a:hover{color:var(--indigo);}
+  .copyright{
+    border-top:1px solid var(--line);padding-top:24px;
+    font-size:13px;color:var(--slate);
+    display:flex;flex-direction:column;gap:8px;
+  }
+  @media(min-width:600px){.copyright{flex-direction:row;justify-content:space-between;}}
+
+  .tag{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    color:var(--mint);background:rgba(124,224,198,0.1);
+    border:1px solid rgba(124,224,198,0.25);
+    padding:3px 9px;border-radius:6px;margin-left:8px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo"><span class="x">Dev</span>X<span style="color:var(--slate);font-weight:500;font-size:14px;margin-left:6px;">Services</span></div>
+    <div class="navlinks">
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#offers">Offers</a>
+      <a href="#wallet">Wallet</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="cta-small">Get Started</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Design · Create · Grow</div>
+          <h1>Premium digital work,<br><span class="accent">priced like a chai.</span></h1>
+          <p class="lead">Logos, thumbnails, e-commerce graphics and social media services for creators and small brands — fast turnarounds, transparent pricing starting from ₹5, and a wallet that keeps every transaction in plain sight.</p>
+          <div class="hero-ctas">
+            <a href="#services" class="btn-primary">Browse Services</a>
+            <a href="#contact" class="btn-ghost">Talk to Us</a>
+          </div>
+        </div>
+        <div class="founder-card">
+          <img src="profile.webp" alt="Founder of DevX Services standing outdoors">
+          <div class="founder-tag">
+            <div class="name">DevX Services</div>
+            <div class="role">Founder &amp; Creative Lead</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ledger">
+    <div class="ledger-track" id="ledgerTrack">
+      <!-- items injected twice for seamless loop -->
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow">Price List</div>
+        <h2>Every service, one tab open.</h2>
+        <p>No quotes, no back-and-forth — just the menu and the price.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3><span class="card-icon icon-design">🎨</span>Graphic Design</h3>
+          <ul class="price-list">
+            <li><span class="name">Basic Logo Design</span><span class="amount">₹29</span></li>
+            <li><span class="name">Premium Logo Design</span><span class="amount">₹99</span></li>
+            <li><span class="name">Pro Logo Design</span><span class="amount">₹199</span></li>
+            <li><span class="name">YouTube Thumbnail</span><span class="amount">₹19</span></li>
+            <li><span class="name">Premium Thumbnail</span><span class="amount">₹39</span></li>
+            <li><span class="name">Thumbnail Pack (10)</span><span class="amount">₹149</span></li>
+            <li><span class="name">Banner Design</span><span class="amount">₹49</span></li>
+            <li><span class="name">Instagram Post Design</span><span class="amount">₹15</span></li>
+            <li><span class="name">Post Pack (10)</span><span class="amount">₹99</span></li>
+            <li><span class="name">Discord/Telegram Banner</span><span class="amount">₹49</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><span class="card-icon icon-shop">📸</span>E-Commerce Design</h3>
+          <ul class="price-list">
+            <li><span class="name">Background Removal</span><span class="amount">₹5/img</span></li>
+            <li><span class="name">Product Editing</span><span class="amount">₹15/img</span></li>
+            <li><span class="name">Product Showcase Design</span><span class="amount">₹49</span></li>
+            <li><span class="name">Product Listing Design</span><span class="amount">₹39</span></li>
+            <li><span class="name">E-Commerce Banner</span><span class="amount">₹69</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><span class="card-icon icon-social">📱</span>Instagram Services</h3>
+          <ul class="price-list">
+            <li><span class="name">Profile Setup</span><span class="amount">₹29</span></li>
+            <li><span class="name">Bio Design</span><span class="amount">₹9</span></li>
+            <li><span class="name">Highlight Covers</span><span class="amount">₹19</span></li>
+            <li><span class="name">Content Ideas Pack</span><span class="amount">₹49</span></li>
+            <li><span class="name">Profile Audit</span><span class="amount">₹29</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><span class="card-icon icon-premium">🎵</span>Premium Services</h3>
+          <ul class="price-list">
+            <li><span class="name">Spotify Premium</span><span class="amount">₹29</span></li>
+            <li><span class="name">OTT Plans</span><span class="amount">₹39</span></li>
+            <li><span class="name">Premium Memberships</span><span class="amount">Custom</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><span class="card-icon icon-premium">👤</span>Account Features <span class="tag">All Free</span></h3>
+          <ul class="price-list">
+            <li><span class="name">Premium Profile</span><span class="amount">Free</span></li>
+            <li><span class="name">Wallet System</span><span class="amount">Free</span></li>
+            <li><span class="name">Telegram Updates</span><span class="amount">Free</span></li>
+            <li><span class="name">Order Tracking</span><span class="amount">Free</span></li>
+            <li><span class="name">Payment History</span><span class="amount">Free</span></li>
+            <li><span class="name">Referral System</span><span class="amount">Free</span></li>
+            <li><span class="name">Support Tickets</span><span class="amount">Free</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><span class="card-icon icon-design">⚡</span>Why DevX</h3>
+          <ul class="price-list">
+            <li><span class="name">Fast Delivery</span><span class="amount">✓</span></li>
+            <li><span class="name">Secure Payments</span><span class="amount">✓</span></li>
+            <li><span class="name">Telegram Notifications</span><span class="amount">✓</span></li>
+            <li><span class="name">Dedicated Support</span><span class="amount">✓</span></li>
+            <li><span class="name">User-Friendly Dashboard</span><span class="amount">✓</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow">Before / After</div>
+        <h2>Real edits. Real results.</h2>
+        <p>A look at the kind of design and editing work behind the price list.</p>
+      </div>
+      <div class="portfolio-grid">
+        <figure class="portfolio-item">
+          <img src="portfolio-1.png" alt="E-commerce shoot edit, before and after, of a man in a brown shirt leaning against a pillar">
+          <figcaption>E-Commerce Shoot Edit</figcaption>
+        </figure>
+        <figure class="portfolio-item">
+          <img src="portfolio-2.png" alt="Indore travel vlog YouTube thumbnail design with city landmarks">
+          <figcaption>YouTube Thumbnail — Travel Vlog</figcaption>
+        </figure>
+        <figure class="portfolio-item">
+          <img src="portfolio-3.png" alt="Real life product mockup of a man holding a protein powder pack in a kitchen">
+          <figcaption>Real-Life Product Mockup</figcaption>
+        </figure>
+        <figure class="portfolio-item">
+          <img src="portfolio-4.png" alt="Coca-Cola style product post design with a model holding a can">
+          <figcaption>Social Media Product Post</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="offers">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow">Bundles</div>
+        <h2>Stack services, save more.</h2>
+        <p>Combos for creators getting started and brands going all-in.</p>
+      </div>
+      <div class="offers">
+        <div class="offer">
+          <div class="name">Logo + Thumbnail Combo</div>
+          <div class="price">₹99</div>
+        </div>
+        <div class="offer">
+          <div class="name">Creator Starter Pack</div>
+          <div class="price">₹149</div>
+        </div>
+        <div class="offer">
+          <div class="name">Social Media Kit</div>
+          <div class="price">₹199</div>
+        </div>
+        <div class="offer">
+          <div class="name">Business Branding Pack</div>
+          <div class="price">₹299</div>
+        </div>
+        <div class="offer">
+          <div class="name">All Design Pack</div>
+          <div class="price">₹499</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="wallet">
+    <div class="wrap">
+      <div class="wallet">
+        <div>
+          <div class="section-eyebrow">Wallet System</div>
+          <h2>Top up from ₹1.<br>Track every rupee.</h2>
+          <p>Add funds instantly, get cashback on orders, redeem coupons, and keep a running history of every transaction — no surprises, no hidden fees.</p>
+          <a href="#contact" class="btn-primary">Open Your Wallet</a>
+        </div>
+        <div class="wallet-stats">
+          <div class="wallet-stat"><span class="label">Minimum Deposit</span><span class="val">₹1</span></div>
+          <div class="wallet-stat"><span class="label">Welcome Bonus</span><span class="val">₹5</span></div>
+          <div class="wallet-stat"><span class="label">Referral Bonus</span><span class="val">₹2 / user</span></div>
+          <div class="wallet-stat"><span class="label">Order Tracking</span><span class="val">Live</span></div>
+          <div class="wallet-stat"><span class="label">Telegram Alerts</span><span class="val">Instant</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="order">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow">How To Order</div>
+        <h2>Three steps. No signup needed.</h2>
+        <p>Pick a service, message us on Telegram, pay via UPI — your order starts the moment payment is confirmed.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3><span class="card-icon icon-social">1</span>Message Us</h3>
+          <p style="color:var(--slate);font-size:14px;margin-bottom:18px;">Send the service name and any details (logo text, brand colors, reference images) to our Telegram.</p>
+          <a href="https://t.me/devex_2" target="_blank" rel="noopener" class="btn-primary" style="width:100%;text-align:center;">Message @devex_2</a>
+        </div>
+        <div class="card">
+          <h3><span class="card-icon icon-shop">2</span>Pay via UPI</h3>
+          <p style="color:var(--slate);font-size:14px;margin-bottom:14px;">Scan the QR or pay directly to our UPI ID. Send the payment screenshot on Telegram to confirm.</p>
+          <div style="background:var(--paper);border-radius:10px;padding:16px;display:flex;flex-direction:column;align-items:center;gap:10px;">
+            <img src="upi-qr-final.jpg" alt="UPI QR code for payment" style="width:160px;border-radius:8px;border:1px solid var(--line);">
+            <div class="mono" style="color:var(--ink);font-size:14px;font-weight:600;">Devansh Patil</div>
+            <div class="mono" style="color:var(--ink);font-size:12px;">UPI ID: vikasdt68-2@okicici</div>
+          </div>
+        </div>
+        <div class="card">
+          <h3><span class="card-icon icon-premium">3</span>Track Your Order</h3>
+          <p style="color:var(--slate);font-size:14px;margin-bottom:18px;">Get instant Telegram updates on order status, and request invoices anytime via support ticket.</p>
+          <ul class="price-list">
+            <li><span class="name">Avg. Turnaround</span><span class="amount">Hours</span></li>
+            <li><span class="name">Revisions</span><span class="amount">Included</span></li>
+            <li><span class="name">Support</span><span class="amount">Telegram</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow">The Fine Print, Made Simple</div>
+        <h2>What you can count on.</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-num">FAST</div>
+          <h4>Quick Turnarounds</h4>
+          <p>Most design orders delivered within hours, not days.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-num">SAFE</div>
+          <h4>Secure Payments</h4>
+          <p>Wallet-based checkout with full transaction history.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-num">LIVE</div>
+          <h4>Telegram Updates</h4>
+          <p>Order confirmations and status pushed straight to Telegram.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-num">HELP</div>
+          <h4>Real Support</h4>
+          <p>Raise a ticket anytime — a person replies, not a bot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="foot-brand">
+        <div class="logo"><span class="x">Dev</span>X Services</div>
+        <p>A modern digital marketplace for creators, influencers, businesses and brands — graphic design, e-commerce visuals, social media services and premium digital plans, all in one place.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="tel:+918962631390">+91 89626 31390</a>
+        <a href="mailto:patildevansh495@gmail.com">patildevansh495@gmail.com</a>
+        <a href="mailto:patildevansh120@gmail.com">patildevansh120@gmail.com</a>
+      </div>
+      <div class="foot-col">
+        <h5>Telegram</h5>
+        <a href="https://t.me/devex_2" target="_blank" rel="noopener">@devex_2</a>
+        <p style="color:var(--slate);font-size:13px;">Order confirmations, payment alerts &amp; support — delivered instantly.</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© 2026 DevX Services. All rights reserved.</span>
+      <span>Design. Create. Grow.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const items = [
+    { name: "Basic Logo Design", price: "₹29" },
+    { name: "YouTube Thumbnail", price: "₹19" },
+    { name: "Background Removal /img", price: "₹5" },
+    { name: "Instagram Post Design", price: "₹15" },
+    { name: "Profile Setup", price: "₹29" },
+    { name: "Banner Design", price: "₹49" },
+    { name: "Premium Logo Design", price: "₹99" },
+    { name: "Wallet Top-up", price: "₹1+" },
+    { name: "Creator Starter Pack", price: "₹149" },
+    { name: "Product Editing /img", price: "₹15" },
+    { name: "All Design Pack", price: "₹499" },
+  ];
+
+  const track = document.getElementById('ledgerTrack');
+  function buildSet(){
+    return items.map(i =>
+      `<div class="ledger-item"><span>${i.name}</span><span class="dots">..........</span><span class="price">${i.price}</span></div>`
+    ).join('');
+  }
+  track.innerHTML = buildSet() + buildSet();
+</script>
+
+</body>
+</html>
